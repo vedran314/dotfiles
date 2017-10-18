@@ -1,0 +1,4 @@
+pane	base	1	:calltext	1	:*	0	:/Users/vedran/Sites/calltext.local	0	zsh	:
+pane	base	1	:calltext	1	:*	1	:/Users/vedran/Sites/calltext.local	1	zsh	:
+window	base	1	1	:*	bf2d,181x40,0,0[181x20,0,0,1,181x19,0,21,2]
+state	base	

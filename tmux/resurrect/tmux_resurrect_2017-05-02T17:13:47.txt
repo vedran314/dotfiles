@@ -1,0 +1,6 @@
+pane	TMUX	1	:zsh	0	:-	0	:/home/vedran/github/advanced-js	1	zsh	:
+pane	TMUX	2	:zsh	1	:*	0	:/home/vedran/github/wes-bos-react	0	zsh	:
+pane	TMUX	2	:zsh	1	:*	1	:/home/vedran	1	zsh	:
+window	TMUX	1	0	:-	c45e,213x46,0,0,1
+window	TMUX	2	1	:*	d3d1,213x46,0,0{106x46,0,0,2,106x46,107,0,3}
+state	TMUX	

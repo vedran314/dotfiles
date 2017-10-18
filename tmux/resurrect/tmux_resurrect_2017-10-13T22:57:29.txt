@@ -1,0 +1,9 @@
+pane	0	1	:node	0	:-	0	:/Users/vedran/Sites/ct.local	1	node	:gulp  
+pane	0	2	:vim	1	:*	0	:/Users/vedran/Sites/ct.local	1	vim	:vim .
+pane	1	1	:calltext	0	:-	0	:/Users/vedran/Sites/ct.local	1	zsh	:
+pane	1	2	:vedran	1	:*	0	:/Users/vedran	1	zsh	:
+window	0	1	0	:-	b09d,208x50,0,0,0
+window	0	2	1	:*	b09f,208x50,0,0,2
+window	1	1	0	:-	b0a0,208x31,0,0,3
+window	1	2	1	:*	b0a1,208x31,0,0,4
+state	1	

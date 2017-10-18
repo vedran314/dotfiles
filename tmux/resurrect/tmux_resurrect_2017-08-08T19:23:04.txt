@@ -1,0 +1,4 @@
+pane	base	1	:Calltext	1	:*	0	:/Users/vedran/Sites/calltext.local	0	node	:gulp  
+pane	base	1	:Calltext	1	:*	1	:/Users/vedran/Sites/calltext.local	1	zsh	:
+window	base	1	1	:*	e343,181x39,0,0[181x19,0,0,6,181x19,0,20,9]
+state	base	

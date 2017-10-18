@@ -1,0 +1,8 @@
+pane	0	1	:zsh	1	:*	0	:/Users/vedran	1	zsh	:
+pane	2	1	:vedran	1	:*	0	:/Users/vedran	0	zsh	:
+pane	2	1	:vedran	1	:*	1	:/Users/vedran	1	htop	:htop
+pane	2	2	:ct	0	:-	0	:/Users/vedran	1	zsh	:
+window	0	1	1	:*	cffd,160x49,0,0,0
+window	2	1	1	:*	bae1,208x52,0,0{104x52,0,0,3,103x52,105,0,4}
+window	2	2	0	:-	b8a2,208x52,0,0,5
+state	2	

@@ -1,0 +1,9 @@
+pane	base	1	:zsh	0	:#	0	:/Users/vedran	1	zsh	:
+pane	base	2	:vedran	0	:#	0	:/Users/vedran	1	zsh	:
+pane	base	3	:react-intro-v3	0	:-	0	:/Users/vedran/repos-learn/frontend-masters/complete-intro-to-react	1	zsh	:
+pane	base	4	:advanced-js-2	1	:*	0	:/Users/vedran	1	zsh	:
+window	base	1	0	:#	ce7e,127x29,0,0,1
+window	base	2	0	:#	ce7f,127x29,0,0,2
+window	base	3	0	:-	ce80,127x29,0,0,3
+window	base	4	1	:*	ce81,127x29,0,0,4
+state	base	

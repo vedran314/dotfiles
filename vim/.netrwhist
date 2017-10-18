@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/vedran/Repos/unix'
+let g:netrw_dirhist_2='/Users/vedran/Repos/unix/scripts'
+let g:netrw_dirhist_3='/Users/vedran/Sites/ct.local'
+let g:netrw_dirhist_4='/Users/vedran/Sites/ct.local/app'
+let g:netrw_dirhist_5='/Users/vedran/Sites/ct.local'
+let g:netrw_dirhist_6='/Users/vedran/.config/nvim/plugged'
+let g:netrw_dirhist_7='/Users/vedran/Sites/ct.local'
+let g:netrw_dirhist_8='/Users/vedran/Repos/unix'

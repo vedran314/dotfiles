@@ -1,0 +1,5 @@
+pane	base	1	:Calltext	1	:*	0	:/Users/vedran/Sites/calltext.local	0	zsh	:
+pane	base	1	:Calltext	1	:*	1	:/Users/vedran/Sites/calltext.local/app/modules/Cli/Tasks	0	zsh	:
+pane	base	1	:Calltext	1	:*	2	:/Users/vedran	1	htop	:htop
+window	base	1	1	:*	0275,181x39,0,0{111x39,0,0[111x24,0,0,6,111x14,0,25,7],69x39,112,0,8}
+state	base	

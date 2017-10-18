@@ -1,0 +1,14 @@
+pane	base	1	:zsh	0	:#	0	:/Users/vedran	1	zsh	:
+pane	base	2	:vedran	0	:#	0	:/Users/vedran	1	zsh	:
+pane	base	3	:react-intro-v3	0	:#	0	:/Users/vedran/repos-learn/frontend-masters/complete-intro-to-react	1	zsh	:
+pane	base	4	:advanced-js-2	0	:#-	0	:/Users/vedran/repos-learn/frontend-masters/fm-deeper-foundations-js	0	zsh	:
+pane	base	4	:advanced-js-2	0	:#-	1	:/Users/vedran/repos-learn/frontend-masters/fm-deeper-foundations-js	1	zsh	:
+pane	base	5	:ct	1	:*	0	:/Users/vedran/Sites/calltext.local	0	zsh	:
+pane	base	5	:ct	1	:*	1	:/Users/vedran/Sites/calltext.local/app/modules/cli/tasks	0	zsh	:
+pane	base	5	:ct	1	:*	2	:/Users/vedran	1	htop	:htop
+window	base	1	0	:#	c9be,158x37,0,0,1
+window	base	2	0	:#	c9bf,158x37,0,0,2
+window	base	3	0	:#	c9c0,158x37,0,0,3
+window	base	4	0	:#-	592f,158x37,0,0{84x37,0,0,4,73x37,85,0,5}
+window	base	5	1	:*	308c,158x37,0,0{99x37,0,0[99x23,0,0,6,99x13,0,24,9],58x37,100,0,8}
+state	base	

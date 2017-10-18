@@ -1,0 +1,265 @@
+{
+  "{\"filename\":\"/Users/vedran/repos/flex-playground/gulpfile.babel.js\",\"env\":{},\"retainLines\":false,\"highlightCode\":true,\"suppressDeprecationMessages\":false,\"presets\":[],\"plugins\":[[[],null],[[],null],[[],null],[[],null],[[],null],[[],null],[[],null],[[],null],[[],null],[[],null],[[],null],[[],null],[[],null],[[],null],[[],null],[[],null],[[],null],[[],null],[[],null],[[],null],[[],{\"async\":false,\"asyncGenerators\":false}]],\"ignore\":[],\"code\":true,\"metadata\":true,\"ast\":true,\"comments\":true,\"compact\":\"auto\",\"minified\":false,\"babelrc\":true,\"sourceType\":\"module\",\"moduleIds\":false,\"passPerPreset\":false}:6.9.1": {
+    "metadata": {
+      "usedHelpers": [
+        "interopRequireDefault"
+      ],
+      "marked": [],
+      "modules": {
+        "imports": [
+          {
+            "source": "fs",
+            "imported": [
+              "default"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "fs"
+              }
+            ]
+          },
+          {
+            "source": "path",
+            "imported": [
+              "default"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "path"
+              }
+            ]
+          },
+          {
+            "source": "gulp",
+            "imported": [
+              "default"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "gulp"
+              }
+            ]
+          },
+          {
+            "source": "gulp-load-plugins",
+            "imported": [
+              "default"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "plugins"
+              }
+            ]
+          },
+          {
+            "source": "run-sequence",
+            "imported": [
+              "default"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "runSequence"
+              }
+            ]
+          },
+          {
+            "source": "archiver",
+            "imported": [
+              "default"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "archiver"
+              }
+            ]
+          },
+          {
+            "source": "glob",
+            "imported": [
+              "default"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "glob"
+              }
+            ]
+          },
+          {
+            "source": "del",
+            "imported": [
+              "default"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "del"
+              }
+            ]
+          },
+          {
+            "source": "./package.json",
+            "imported": [
+              "default"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "pkg"
+              }
+            ]
+          }
+        ],
+        "exports": {
+          "exported": [],
+          "specifiers": []
+        }
+      }
+    },
+    "options": {
+      "filename": "/Users/vedran/repos/flex-playground/gulpfile.babel.js",
+      "filenameRelative": "/Users/vedran/repos/flex-playground/gulpfile.babel.js",
+      "env": {},
+      "retainLines": false,
+      "highlightCode": true,
+      "suppressDeprecationMessages": false,
+      "presets": [],
+      "plugins": [
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "async": false,
+            "asyncGenerators": false
+          }
+        ]
+      ],
+      "ignore": [],
+      "code": true,
+      "metadata": true,
+      "ast": false,
+      "comments": true,
+      "compact": "auto",
+      "minified": false,
+      "sourceMap": "both",
+      "sourceMaps": "both",
+      "sourceMapTarget": "gulpfile.babel.js",
+      "sourceFileName": "gulpfile.babel.js",
+      "babelrc": false,
+      "sourceType": "module",
+      "moduleIds": false,
+      "passPerPreset": false,
+      "basename": "gulpfile.babel"
+    },
+    "ignored": false,
+    "code": "'use strict';\n\nvar _fs = require('fs');\n\nvar _fs2 = _interopRequireDefault(_fs);\n\nvar _path = require('path');\n\nvar _path2 = _interopRequireDefault(_path);\n\nvar _gulp = require('gulp');\n\nvar _gulp2 = _interopRequireDefault(_gulp);\n\nvar _gulpLoadPlugins = require('gulp-load-plugins');\n\nvar _gulpLoadPlugins2 = _interopRequireDefault(_gulpLoadPlugins);\n\nvar _runSequence = require('run-sequence');\n\nvar _runSequence2 = _interopRequireDefault(_runSequence);\n\nvar _archiver = require('archiver');\n\nvar _archiver2 = _interopRequireDefault(_archiver);\n\nvar _glob = require('glob');\n\nvar _glob2 = _interopRequireDefault(_glob);\n\nvar _del = require('del');\n\nvar _del2 = _interopRequireDefault(_del);\n\nvar _package = require('./package.json');\n\nvar _package2 = _interopRequireDefault(_package);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n// Load all gulp plugins automatically\n// and attach them to the `plugins` object\n\n\nvar dirs = _package2.default['h5bp-configs'].directories;\n\n// ---------------------------------------------------------------------\n// | Helper tasks                                                      |\n// ---------------------------------------------------------------------\n\n// Temporary solution until gulp 4\n// https://github.com/gulpjs/gulp/issues/355\n_gulp2.default.task('archive:create_archive_dir', function () {\n    _fs2.default.mkdirSync(_path2.default.resolve(dirs.archive), '0755');\n});\n\n_gulp2.default.task('archive:zip', function (done) {\n\n    var archiveName = _path2.default.resolve(dirs.archive, _package2.default.name + '_v' + _package2.default.version + '.zip');\n    var zip = (0, _archiver2.default)('zip');\n    var files = _glob2.default.sync('**/*.*', {\n        'cwd': dirs.dist,\n        'dot': true // include hidden files\n    });\n    var output = _fs2.default.createWriteStream(archiveName);\n\n    zip.on('error', function (error) {\n        done();\n        throw error;\n    });\n\n    output.on('close', done);\n\n    files.forEach(function (file) {\n\n        var filePath = _path2.default.resolve(dirs.dist, file);\n\n        // `zip.bulk` does not maintain the file\n        // permissions, so we need to add files individually\n        zip.append(_fs2.default.createReadStream(filePath), {\n            'name': file,\n            'mode': _fs2.default.statSync(filePath).mode\n        });\n    });\n\n    zip.pipe(output);\n    zip.finalize();\n});\n\n_gulp2.default.task('clean', function (done) {\n    (0, _del2.default)([dirs.archive, dirs.dist]).then(function () {\n        done();\n    });\n});\n\n_gulp2.default.task('copy', ['copy:.htaccess', 'copy:index.html', 'copy:jquery', 'copy:license', 'copy:main.css', 'copy:misc', 'copy:normalize']);\n\n_gulp2.default.task('copy:.htaccess', function () {\n    return _gulp2.default.src('node_modules/apache-server-configs/dist/.htaccess').pipe((0, _gulpLoadPlugins2.default)().replace(/# ErrorDocument/g, 'ErrorDocument')).pipe(_gulp2.default.dest(dirs.dist));\n});\n\n_gulp2.default.task('copy:index.html', function () {\n    return _gulp2.default.src(dirs.src + '/index.html').pipe((0, _gulpLoadPlugins2.default)().replace(/{{JQUERY_VERSION}}/g, _package2.default.devDependencies.jquery)).pipe(_gulp2.default.dest(dirs.dist));\n});\n\n_gulp2.default.task('copy:jquery', function () {\n    return _gulp2.default.src(['node_modules/jquery/dist/jquery.min.js']).pipe((0, _gulpLoadPlugins2.default)().rename('jquery-' + _package2.default.devDependencies.jquery + '.min.js')).pipe(_gulp2.default.dest(dirs.dist + '/js/vendor'));\n});\n\n_gulp2.default.task('copy:license', function () {\n    return _gulp2.default.src('LICENSE.txt').pipe(_gulp2.default.dest(dirs.dist));\n});\n\n_gulp2.default.task('copy:main.css', function () {\n\n    var banner = '/*! HTML5 Boilerplate v' + _package2.default.version + ' | ' + _package2.default.license.type + ' License | ' + _package2.default.homepage + ' */\\n\\n';\n\n    _gulp2.default.src(dirs.src + '/css/main.css').pipe((0, _gulpLoadPlugins2.default)().header(banner)).pipe((0, _gulpLoadPlugins2.default)().autoprefixer({\n        browsers: ['last 2 versions', 'ie >= 8', '> 1%'],\n        cascade: false\n    })).pipe(_gulp2.default.dest(dirs.dist + '/css'));\n});\n\n_gulp2.default.task('copy:misc', function () {\n    return _gulp2.default.src([\n\n    // Copy all files\n    dirs.src + '/**/*',\n\n    // Exclude the following files\n    // (other tasks will handle the copying of these files)\n    '!' + dirs.src + '/css/main.css', '!' + dirs.src + '/index.html'], {\n\n        // Include hidden files by default\n        dot: true\n\n    }).pipe(_gulp2.default.dest(dirs.dist));\n});\n\n_gulp2.default.task('copy:normalize', function () {\n    return _gulp2.default.src('node_modules/normalize.css/normalize.css').pipe(_gulp2.default.dest(dirs.dist + '/css'));\n});\n\n_gulp2.default.task('lint:js', function () {\n    return _gulp2.default.src(['gulpfile.js', dirs.src + '/js/*.js', dirs.test + '/*.js']).pipe((0, _gulpLoadPlugins2.default)().jscs()).pipe((0, _gulpLoadPlugins2.default)().jshint()).pipe((0, _gulpLoadPlugins2.default)().jshint.reporter('jshint-stylish')).pipe((0, _gulpLoadPlugins2.default)().jshint.reporter('fail'));\n});\n\n// ---------------------------------------------------------------------\n// | Main tasks                                                        |\n// ---------------------------------------------------------------------\n\n_gulp2.default.task('archive', function (done) {\n    (0, _runSequence2.default)('build', 'archive:create_archive_dir', 'archive:zip', done);\n});\n\n_gulp2.default.task('build', function (done) {\n    (0, _runSequence2.default)(['clean', 'lint:js'], 'copy', done);\n});\n\n_gulp2.default.task('default', ['build']);\n//# sourceMappingURL=data:application/json;base64,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cUI7QUFBQSxXQUNqQixlQUFLLEdBQUwsQ0FBUyxDQUNMLGFBREssRUFFRixLQUFLLEdBRkgsZUFHRixLQUFLLElBSEgsV0FBVCxFQUlHLElBSkgsQ0FJUSxpQ0FBVSxJQUFWLEVBSlIsRUFLRyxJQUxILENBS1EsaUNBQVUsTUFBVixFQUxSLEVBTUcsSUFOSCxDQU1RLGlDQUFVLE1BQVYsQ0FBaUIsUUFBakIsQ0FBMEIsZ0JBQTFCLENBTlIsRUFPRyxJQVBILENBT1EsaUNBQVUsTUFBVixDQUFpQixRQUFqQixDQUEwQixNQUExQixDQVBSLENBRGlCO0FBQUEsQ0FBckI7Ozs7OztBQWdCQSxlQUFLLElBQUwsQ0FBVSxTQUFWLEVBQXFCLFVBQUMsSUFBRCxFQUFVO0FBQzNCLCtCQUNJLE9BREosRUFFSSw0QkFGSixFQUdJLGFBSEosRUFJQSxJQUpBO0FBS0gsQ0FORDs7QUFRQSxlQUFLLElBQUwsQ0FBVSxPQUFWLEVBQW1CLFVBQUMsSUFBRCxFQUFVO0FBQ3pCLCtCQUNJLENBQUMsT0FBRCxFQUFVLFNBQVYsQ0FESixFQUVJLE1BRkosRUFHQSxJQUhBO0FBSUgsQ0FMRDs7QUFPQSxlQUFLLElBQUwsQ0FBVSxTQUFWLEVBQXFCLENBQUMsT0FBRCxDQUFyQiIsImZpbGUiOiJndWxwZmlsZS5iYWJlbC5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBmcyBmcm9tICdmcyc7XG5pbXBvcnQgcGF0aCBmcm9tICdwYXRoJztcblxuaW1wb3J0IGd1bHAgZnJvbSAnZ3VscCc7XG5cbi8vIExvYWQgYWxsIGd1bHAgcGx1Z2lucyBhdXRvbWF0aWNhbGx5XG4vLyBhbmQgYXR0YWNoIHRoZW0gdG8gdGhlIGBwbHVnaW5zYCBvYmplY3RcbmltcG9ydCBwbHVnaW5zIGZyb20gJ2d1bHAtbG9hZC1wbHVnaW5zJztcblxuLy8gVGVtcG9yYXJ5IHNvbHV0aW9uIHVudGlsIGd1bHAgNFxuLy8gaHR0cHM6Ly9naXRodWIuY29tL2d1bHBqcy9ndWxwL2lzc3Vlcy8zNTVcbmltcG9ydCBydW5TZXF1ZW5jZSBmcm9tICdydW4tc2VxdWVuY2UnO1xuXG5pbXBvcnQgYXJjaGl2ZXIgZnJvbSAnYXJjaGl2ZXInO1xuaW1wb3J0IGdsb2IgZnJvbSAnZ2xvYic7XG5pbXBvcnQgZGVsIGZyb20gJ2RlbCc7XG5cbmltcG9ydCBwa2cgZnJvbSAnLi9wYWNrYWdlLmpzb24nO1xuXG5jb25zdCBkaXJzID0gcGtnWydoNWJwLWNvbmZpZ3MnXS5kaXJlY3RvcmllcztcblxuLy8gLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tXG4vLyB8IEhlbHBlciB0YXNrcyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHxcbi8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLVxuXG5ndWxwLnRhc2soJ2FyY2hpdmU6Y3JlYXRlX2FyY2hpdmVfZGlyJywgKCkgPT4ge1xuICAgIGZzLm1rZGlyU3luYyhwYXRoLnJlc29sdmUoZGlycy5hcmNoaXZlKSwgJzA3NTUnKTtcbn0pO1xuXG5ndWxwLnRhc2soJ2FyY2hpdmU6emlwJywgKGRvbmUpID0+IHtcblxuICAgIGNvbnN0IGFyY2hpdmVOYW1lID0gcGF0aC5yZXNvbHZlKGRpcnMuYXJjaGl2ZSwgYCR7cGtnLm5hbWV9X3Yke3BrZy52ZXJzaW9ufS56aXBgKTtcbiAgICBjb25zdCB6aXAgPSBhcmNoaXZlcignemlwJyk7XG4gICAgY29uc3QgZmlsZXMgPSBnbG9iLnN5bmMoJyoqLyouKicsIHtcbiAgICAgICAgJ2N3ZCc6IGRpcnMuZGlzdCxcbiAgICAgICAgJ2RvdCc6IHRydWUgLy8gaW5jbHVkZSBoaWRkZW4gZmlsZXNcbiAgICB9KTtcbiAgICBjb25zdCBvdXRwdXQgPSBmcy5jcmVhdGVXcml0ZVN0cmVhbShhcmNoaXZlTmFtZSk7XG5cbiAgICB6aXAub24oJ2Vycm9yJywgKGVycm9yKSA9PiB7XG4gICAgICAgIGRvbmUoKTtcbiAgICAgICAgdGhyb3cgZXJyb3I7XG4gICAgfSk7XG5cbiAgICBvdXRwdXQub24oJ2Nsb3NlJywgZG9uZSk7XG5cbiAgICBmaWxlcy5mb3JFYWNoKCAoZmlsZSkgPT4ge1xuXG4gICAgICAgIGNvbnN0IGZpbGVQYXRoID0gcGF0aC5yZXNvbHZlKGRpcnMuZGlzdCwgZmlsZSk7XG5cbiAgICAgICAgLy8gYHppcC5idWxrYCBkb2VzIG5vdCBtYWludGFpbiB0aGUgZmlsZVxuICAgICAgICAvLyBwZXJtaXNzaW9ucywgc28gd2UgbmVlZCB0byBhZGQgZmlsZXMgaW5kaXZpZHVhbGx5XG4gICAgICAgIHppcC5hcHBlbmQoZnMuY3JlYXRlUmVhZFN0cmVhbShmaWxlUGF0aCksIHtcbiAgICAgICAgICAgICduYW1lJzogZmlsZSxcbiAgICAgICAgICAgICdtb2RlJzogZnMuc3RhdFN5bmMoZmlsZVBhdGgpLm1vZGVcbiAgICAgICAgfSk7XG5cbiAgICB9KTtcblxuICAgIHppcC5waXBlKG91dHB1dCk7XG4gICAgemlwLmZpbmFsaXplKCk7XG5cbn0pO1xuXG5ndWxwLnRhc2soJ2NsZWFuJywgKGRvbmUpID0+IHtcbiAgICBkZWwoW1xuICAgICAgICBkaXJzLmFyY2hpdmUsXG4gICAgICAgIGRpcnMuZGlzdFxuICAgIF0pLnRoZW4oICgpID0+IHtcbiAgICAgICAgZG9uZSgpO1xuICAgIH0pO1xufSk7XG5cbmd1bHAudGFzaygnY29weScsIFtcbiAgICAnY29weTouaHRhY2Nlc3MnLFxuICAgICdjb3B5OmluZGV4Lmh0bWwnLFxuICAgICdjb3B5OmpxdWVyeScsXG4gICAgJ2NvcHk6bGljZW5zZScsXG4gICAgJ2NvcHk6bWFpbi5jc3MnLFxuICAgICdjb3B5Om1pc2MnLFxuICAgICdjb3B5Om5vcm1hbGl6ZSdcbl0pO1xuXG5ndWxwLnRhc2soJ2NvcHk6Lmh0YWNjZXNzJywgKCkgPT5cbiAgICBndWxwLnNyYygnbm9kZV9tb2R1bGVzL2FwYWNoZS1zZXJ2ZXItY29uZmlncy9kaXN0Ly5odGFjY2VzcycpXG4gICAgICAgIC5waXBlKHBsdWdpbnMoKS5yZXBsYWNlKC8jIEVycm9yRG9jdW1lbnQvZywgJ0Vycm9yRG9jdW1lbnQnKSlcbiAgICAgICAgLnBpcGUoZ3VscC5kZXN0KGRpcnMuZGlzdCkpXG4pO1xuXG5ndWxwLnRhc2soJ2NvcHk6aW5kZXguaHRtbCcsICgpID0+XG4gICAgZ3VscC5zcmMoYCR7ZGlycy5zcmN9L2luZGV4Lmh0bWxgKVxuICAgICAgICAucGlwZShwbHVnaW5zKCkucmVwbGFjZSgve3tKUVVFUllfVkVSU0lPTn19L2csIHBrZy5kZXZEZXBlbmRlbmNpZXMuanF1ZXJ5KSlcbiAgICAgICAgLnBpcGUoZ3VscC5kZXN0KGRpcnMuZGlzdCkpXG4pO1xuXG5ndWxwLnRhc2soJ2NvcHk6anF1ZXJ5JywgKCkgPT5cbiAgICBndWxwLnNyYyhbJ25vZGVfbW9kdWxlcy9qcXVlcnkvZGlzdC9qcXVlcnkubWluLmpzJ10pXG4gICAgICAgIC5waXBlKHBsdWdpbnMoKS5yZW5hbWUoYGpxdWVyeS0ke3BrZy5kZXZEZXBlbmRlbmNpZXMuanF1ZXJ5fS5taW4uanNgKSlcbiAgICAgICAgLnBpcGUoZ3VscC5kZXN0KGAke2RpcnMuZGlzdH0vanMvdmVuZG9yYCkpXG4pO1xuXG5ndWxwLnRhc2soJ2NvcHk6bGljZW5zZScsICgpID0+XG4gICAgZ3VscC5zcmMoJ0xJQ0VOU0UudHh0JylcbiAgICAgICAgLnBpcGUoZ3VscC5kZXN0KGRpcnMuZGlzdCkpXG4pO1xuXG5ndWxwLnRhc2soJ2NvcHk6bWFpbi5jc3MnLCAoKSA9PiB7XG5cbiAgICBjb25zdCBiYW5uZXIgPSBgLyohIEhUTUw1IEJvaWxlcnBsYXRlIHYke3BrZy52ZXJzaW9ufSB8ICR7cGtnLmxpY2Vuc2UudHlwZX0gTGljZW5zZSB8ICR7cGtnLmhvbWVwYWdlfSAqL1xcblxcbmA7XG5cbiAgICBndWxwLnNyYyhgJHtkaXJzLnNyY30vY3NzL21haW4uY3NzYClcbiAgICAgICAgLnBpcGUocGx1Z2lucygpLmhlYWRlcihiYW5uZXIpKVxuICAgICAgICAucGlwZShwbHVnaW5zKCkuYXV0b3ByZWZpeGVyKHtcbiAgICAgICAgICAgIGJyb3dzZXJzOiBbJ2xhc3QgMiB2ZXJzaW9ucycsICdpZSA+PSA4JywgJz4gMSUnXSxcbiAgICAgICAgICAgIGNhc2NhZGU6IGZhbHNlXG4gICAgICAgIH0pKVxuICAgICAgICAucGlwZShndWxwLmRlc3QoYCR7ZGlycy5kaXN0fS9jc3NgKSk7XG59KTtcblxuZ3VscC50YXNrKCdjb3B5Om1pc2MnLCAoKSA9PlxuICAgIGd1bHAuc3JjKFtcblxuICAgICAgICAvLyBDb3B5IGFsbCBmaWxlc1xuICAgICAgICBgJHtkaXJzLnNyY30vKiovKmAsXG5cbiAgICAgICAgLy8gRXhjbHVkZSB0aGUgZm9sbG93aW5nIGZpbGVzXG4gICAgICAgIC8vIChvdGhlciB0YXNrcyB3aWxsIGhhbmRsZSB0aGUgY29weWluZyBvZiB0aGVzZSBmaWxlcylcbiAgICAgICAgYCEke2RpcnMuc3JjfS9jc3MvbWFpbi5jc3NgLFxuICAgICAgICBgISR7ZGlycy5zcmN9L2luZGV4Lmh0bWxgXG5cbiAgICBdLCB7XG5cbiAgICAgICAgLy8gSW5jbHVkZSBoaWRkZW4gZmlsZXMgYnkgZGVmYXVsdFxuICAgICAgICBkb3Q6IHRydWVcblxuICAgIH0pLnBpcGUoZ3VscC5kZXN0KGRpcnMuZGlzdCkpXG4pO1xuXG5ndWxwLnRhc2soJ2NvcHk6bm9ybWFsaXplJywgKCkgPT5cbiAgICBndWxwLnNyYygnbm9kZV9tb2R1bGVzL25vcm1hbGl6ZS5jc3Mvbm9ybWFsaXplLmNzcycpXG4gICAgICAgIC5waXBlKGd1bHAuZGVzdChgJHtkaXJzLmRpc3R9L2Nzc2ApKVxuKTtcblxuZ3VscC50YXNrKCdsaW50OmpzJywgKCkgPT5cbiAgICBndWxwLnNyYyhbXG4gICAgICAgICdndWxwZmlsZS5qcycsXG4gICAgICAgIGAke2RpcnMuc3JjfS9qcy8qLmpzYCxcbiAgICAgICAgYCR7ZGlycy50ZXN0fS8qLmpzYFxuICAgIF0pLnBpcGUocGx1Z2lucygpLmpzY3MoKSlcbiAgICAgIC5waXBlKHBsdWdpbnMoKS5qc2hpbnQoKSlcbiAgICAgIC5waXBlKHBsdWdpbnMoKS5qc2hpbnQucmVwb3J0ZXIoJ2pzaGludC1zdHlsaXNoJykpXG4gICAgICAucGlwZShwbHVnaW5zKCkuanNoaW50LnJlcG9ydGVyKCdmYWlsJykpXG4pO1xuXG5cbi8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLVxuLy8gfCBNYWluIHRhc2tzICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8XG4vLyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1cblxuZ3VscC50YXNrKCdhcmNoaXZlJywgKGRvbmUpID0+IHtcbiAgICBydW5TZXF1ZW5jZShcbiAgICAgICAgJ2J1aWxkJyxcbiAgICAgICAgJ2FyY2hpdmU6Y3JlYXRlX2FyY2hpdmVfZGlyJyxcbiAgICAgICAgJ2FyY2hpdmU6emlwJyxcbiAgICBkb25lKVxufSk7XG5cbmd1bHAudGFzaygnYnVpbGQnLCAoZG9uZSkgPT4ge1xuICAgIHJ1blNlcXVlbmNlKFxuICAgICAgICBbJ2NsZWFuJywgJ2xpbnQ6anMnXSxcbiAgICAgICAgJ2NvcHknLFxuICAgIGRvbmUpXG59KTtcblxuZ3VscC50YXNrKCdkZWZhdWx0JywgWydidWlsZCddKTtcbiJdfQ==",
+    "ast": null,
+    "map": {
+      "version": 3,
+      "sources": [
+        "gulpfile.babel.js"
+      ],
+      "names": [],
+      "mappings": "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",
+      "file": "gulpfile.babel.js",
+      "sourcesContent": [
+        "import fs from 'fs';\nimport path from 'path';\n\nimport gulp from 'gulp';\n\n// Load all gulp plugins automatically\n// and attach them to the `plugins` object\nimport plugins from 'gulp-load-plugins';\n\n// Temporary solution until gulp 4\n// https://github.com/gulpjs/gulp/issues/355\nimport runSequence from 'run-sequence';\n\nimport archiver from 'archiver';\nimport glob from 'glob';\nimport del from 'del';\n\nimport pkg from './package.json';\n\nconst dirs = pkg['h5bp-configs'].directories;\n\n// ---------------------------------------------------------------------\n// | Helper tasks                                                      |\n// ---------------------------------------------------------------------\n\ngulp.task('archive:create_archive_dir', () => {\n    fs.mkdirSync(path.resolve(dirs.archive), '0755');\n});\n\ngulp.task('archive:zip', (done) => {\n\n    const archiveName = path.resolve(dirs.archive, `${pkg.name}_v${pkg.version}.zip`);\n    const zip = archiver('zip');\n    const files = glob.sync('**/*.*', {\n        'cwd': dirs.dist,\n        'dot': true // include hidden files\n    });\n    const output = fs.createWriteStream(archiveName);\n\n    zip.on('error', (error) => {\n        done();\n        throw error;\n    });\n\n    output.on('close', done);\n\n    files.forEach( (file) => {\n\n        const filePath = path.resolve(dirs.dist, file);\n\n        // `zip.bulk` does not maintain the file\n        // permissions, so we need to add files individually\n        zip.append(fs.createReadStream(filePath), {\n            'name': file,\n            'mode': fs.statSync(filePath).mode\n        });\n\n    });\n\n    zip.pipe(output);\n    zip.finalize();\n\n});\n\ngulp.task('clean', (done) => {\n    del([\n        dirs.archive,\n        dirs.dist\n    ]).then( () => {\n        done();\n    });\n});\n\ngulp.task('copy', [\n    'copy:.htaccess',\n    'copy:index.html',\n    'copy:jquery',\n    'copy:license',\n    'copy:main.css',\n    'copy:misc',\n    'copy:normalize'\n]);\n\ngulp.task('copy:.htaccess', () =>\n    gulp.src('node_modules/apache-server-configs/dist/.htaccess')\n        .pipe(plugins().replace(/# ErrorDocument/g, 'ErrorDocument'))\n        .pipe(gulp.dest(dirs.dist))\n);\n\ngulp.task('copy:index.html', () =>\n    gulp.src(`${dirs.src}/index.html`)\n        .pipe(plugins().replace(/{{JQUERY_VERSION}}/g, pkg.devDependencies.jquery))\n        .pipe(gulp.dest(dirs.dist))\n);\n\ngulp.task('copy:jquery', () =>\n    gulp.src(['node_modules/jquery/dist/jquery.min.js'])\n        .pipe(plugins().rename(`jquery-${pkg.devDependencies.jquery}.min.js`))\n        .pipe(gulp.dest(`${dirs.dist}/js/vendor`))\n);\n\ngulp.task('copy:license', () =>\n    gulp.src('LICENSE.txt')\n        .pipe(gulp.dest(dirs.dist))\n);\n\ngulp.task('copy:main.css', () => {\n\n    const banner = `/*! HTML5 Boilerplate v${pkg.version} | ${pkg.license.type} License | ${pkg.homepage} */\\n\\n`;\n\n    gulp.src(`${dirs.src}/css/main.css`)\n        .pipe(plugins().header(banner))\n        .pipe(plugins().autoprefixer({\n            browsers: ['last 2 versions', 'ie >= 8', '> 1%'],\n            cascade: false\n        }))\n        .pipe(gulp.dest(`${dirs.dist}/css`));\n});\n\ngulp.task('copy:misc', () =>\n    gulp.src([\n\n        // Copy all files\n        `${dirs.src}/**/*`,\n\n        // Exclude the following files\n        // (other tasks will handle the copying of these files)\n        `!${dirs.src}/css/main.css`,\n        `!${dirs.src}/index.html`\n\n    ], {\n\n        // Include hidden files by default\n        dot: true\n\n    }).pipe(gulp.dest(dirs.dist))\n);\n\ngulp.task('copy:normalize', () =>\n    gulp.src('node_modules/normalize.css/normalize.css')\n        .pipe(gulp.dest(`${dirs.dist}/css`))\n);\n\ngulp.task('lint:js', () =>\n    gulp.src([\n        'gulpfile.js',\n        `${dirs.src}/js/*.js`,\n        `${dirs.test}/*.js`\n    ]).pipe(plugins().jscs())\n      .pipe(plugins().jshint())\n      .pipe(plugins().jshint.reporter('jshint-stylish'))\n      .pipe(plugins().jshint.reporter('fail'))\n);\n\n\n// ---------------------------------------------------------------------\n// | Main tasks                                                        |\n// ---------------------------------------------------------------------\n\ngulp.task('archive', (done) => {\n    runSequence(\n        'build',\n        'archive:create_archive_dir',\n        'archive:zip',\n    done)\n});\n\ngulp.task('build', (done) => {\n    runSequence(\n        ['clean', 'lint:js'],\n        'copy',\n    done)\n});\n\ngulp.task('default', ['build']);\n"
+      ]
+    },
+    "mtime": 1465659142000
+  }
+}
