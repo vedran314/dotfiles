@@ -397,6 +397,43 @@ export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
+  # fbr - checkout git branch
+  fbr() {
+    local branches branch
+    branches=$(git branch -vv) &&
+    branch=$(echo "$branches" | fzf +m) &&
+     git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+  }
+  # fcoc - checkout git commit
+  fcoc() {
+    local commits commit
+    commits=$(git log --pretty=oneline --abbrev-commit --reverse) &&
+    commit=$(echo "$commits" | fzf --tac +s +m -e) &&
+    git checkout $(echo "$commit" | sed "s/ .*//")
+  }
+
+  # fcs - get git commit sha
+  # example usage: git rebase -i `fcs`
+  fcs() {
+    local commits commit
+    commits=$(git log --color=always --pretty=oneline --abbrev-commit --reverse) &&
+    commit=$(echo "$commits" | fzf --tac +s +m -e --ansi --reverse) &&
+    echo -n $(echo "$commit" | sed "s/ .*//")
+  }
+
+  # Modified version where you can press
+  #   - CTRL-O to open with `open` command,
+  #   - CTRL-E or Enter key to open with the $EDITOR
+  fo() {
+     local out file key
+     IFS=$'\n' out=($(fzf-tmux --query="$1" --exit-0 --expect=ctrl-o,ctrl-e))
+     key=$(head -1 <<< "$out")
+     file=$(head -2 <<< "$out" | tail -1)
+     if [ -n "$file" ]; then
+        [ "$key" = ctrl-o ] && open "$file" || ${EDITOR:-nvim} "$file"
+     fi
+  }
+
  # fcd - cd to selected directory
   fcd() {
     local dir
@@ -418,11 +455,37 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
     file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
   }
 
+  # fh - repeat history
+  fh() {
+   eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
+  }
+  # fkill - kill process
+  fkill() {
+   local pid
+   pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+
+   if [ "x$pid" != "x" ]
+   then
+     echo $pid | xargs kill -${1:-9}
+   fi
+  }
+  # Better Z
+  unalias z 2> /dev/null
+  z() {
+   [ $# -gt 0 ] && _z "$*" && return
+   cd "$(_z -l 2>&1 | fzf --height 40% --nth 2.. --reverse --inline-info +s --tac --query "${*##-* }" | sed 's/^[0-9,.]* *//')"
+  }
+
+
+  # Search through your LastPass vault with LastPass CLI and copy password to
+  # clipboard.
+  
+
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 ######################################################################################################################
 #./fzf
 ######################################################################################################################
 case $- in *i*)
-          if [ -z "$TMUX" ]; then exec tmux; fi;;
+         if [ -z "$TMUX" ]; then exec tmux; fi;;
 esac

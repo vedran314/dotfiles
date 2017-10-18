@@ -21,7 +21,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'mhinz/vim-startify'
 "EasyClip is a plugin for Vim which contains a collection of clipboard related functionality with the goal of 
 "making using the clipboard in Vim simpler and more intuitive without losing any of its power.
-Plug 'svermeulen/vim-easyclip' 
+"Plug 'svermeulen/vim-easyclip' 
 Plug 'kristijanhusak/vim-hybrid-material'
 
 Plug 'PeterRincker/vim-argumentative'
@@ -50,13 +50,13 @@ Plug 'nathanaelkane/vim-indent-guides' "Indent Guides is a plugin for visually d
 Plug 'godlygeek/tabular' "Lign up text
 Plug 'wellle/targets.vim' "Targets.vim is a Vim plugin that adds various text objects to give you more targets to operate on.
 Plug 'wellle/visual-split.vim' "Vim plugin to control splits with visual selections or text objects
-Plug 'maxbrunsfeld/vim-yankstack' "A lightweight implementation of emacs's kill-ring for vim
-Plug 'justinmk/vim-sneak' "The missing motion for Vim
+"Plug 'maxbrunsfeld/vim-yankstack' "A lightweight implementation of emacs's kill-ring for vim
+"Plug 'justinmk/vim-sneak' "The missing motion for Vim
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'w0rp/ale'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-
+Plug 'danhodos/vim-comb'
 "themes
 Plug 'chriskempson/base16-vim'
 Plug 'chriskempson/vim-tomorrow-theme'
@@ -117,9 +117,9 @@ call plug#end()
 "Airline options
 "let g:airline_theme='base16'
 let g:airline#extensions#tabline#enabled = 1
-let g:gruvbox_contrast_dark = 0
-let g:gruvbox_bold = 1
-let g:gruvbox_italic = 1
+"let g:gruvbox_contrast_dark = 0
+"let g:gruvbox_bold = 1
+"let g:gruvbox_italic = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#show_buffers = 1
 let g:hybrid_custom_term_colors = 1
@@ -160,12 +160,25 @@ nmap <Leader>n :NERDTreeToggle<cr>
 "Add simple highlight removal"
 nmap <Leader><space> :nohlsearch<cr>
 
+" Disable Arrow keys in Escape mode
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+
+" Disable Arrow keys in Insert mode
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
+
 "--- ALE---------------- "
 "
 " Put this in vimrc or a plugin file of your own.
 " After this is configured, :ALEFix will try and fix your JS code with ESLint.
 let g:ale_fixers = {
 \   'javascript': ['eslint', 'prettier'],
+\   'scss': ['prettier','stylelint'],
 \}
 " Set this setting in vimrc if you want to fix files automatically on save.
 " This is off by default.
@@ -182,7 +195,9 @@ let g:deoplete#sources#ternjs#docs = 1
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 
-"--- Auto Commands----------------- "
+"--- Visual Bell Disable----------------- "
+autocmd GUIEnter * set vb t_vb= " for your GUI
+autocmd VimEnter * set vb t_vb=
 
 " Auto source .vimrc file on save"
 augroup autosourcing
@@ -190,9 +205,8 @@ augroup autosourcing
 	autocmd BufWritePost .vimrc source %
 augroup END
 
-"Sneak
-let g:sneak#label = 1
+
 
 "--- NERDTree Settings------ "
-let NERDTreeHijackNetrw = 0
+let NERDTreeHijackNetrw = 1
 
