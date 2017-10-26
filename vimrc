@@ -19,9 +19,6 @@ Plug 'tpope/vim-repeat' "Repeat.vim remaps . in a way that plugins can tap into 
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-vinegar'
 Plug 'mhinz/vim-startify'
-"EasyClip is a plugin for Vim which contains a collection of clipboard related functionality with the goal of 
-"making using the clipboard in Vim simpler and more intuitive without losing any of its power.
-"Plug 'svermeulen/vim-easyclip' 
 Plug 'kristijanhusak/vim-hybrid-material'
 
 Plug 'PeterRincker/vim-argumentative'
@@ -43,6 +40,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'morhetz/gruvbox' "gruvbox theme
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'posva/vim-vue'
 Plug 'vim-scripts/Align' "align statements on their equal signs, make comment boxes, align comments, align declarations
 Plug 'Raimondi/delimitMate' "automatic closing of quotes, parenthesis, brackets, etc.
 Plug 'sjl/gundo.vim' "Gundo.vim is Vim plugin to visualize your Vim undo tree.
@@ -50,13 +48,19 @@ Plug 'nathanaelkane/vim-indent-guides' "Indent Guides is a plugin for visually d
 Plug 'godlygeek/tabular' "Lign up text
 Plug 'wellle/targets.vim' "Targets.vim is a Vim plugin that adds various text objects to give you more targets to operate on.
 Plug 'wellle/visual-split.vim' "Vim plugin to control splits with visual selections or text objects
-"Plug 'maxbrunsfeld/vim-yankstack' "A lightweight implementation of emacs's kill-ring for vim
-"Plug 'justinmk/vim-sneak' "The missing motion for Vim
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'w0rp/ale'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-Plug 'danhodos/vim-comb'
+Plug 'rking/ag.vim'
+Plug 'Chun-Yang/vim-action-ag'
+Plug 'farmergreg/vim-lastplace'
+
+"Formaters
+Plug 'maksimr/vim-jsbeautify'
+Plug 'beanworks/vim-phpfmt' 
+Plug 'captbaritone/better-indent-support-for-php-with-html'
+
 "themes
 Plug 'chriskempson/base16-vim'
 Plug 'chriskempson/vim-tomorrow-theme'
@@ -77,16 +81,21 @@ call plug#end()
     set macligatures
   endif
   set termguicolors
+  "Indentation
   set autoindent " Use indentation from previous line
   set backspace=indent,eol,start " Allow backspacing over autoindent, line breaks and start of insert
   set tabstop=2
   set shiftwidth=2      " Number of spaces to use for each step of (auto)indent.
   set expandtab         " insert tab with right amount of spacing
   set shiftround        " Round indent to multiple of 'shiftwidth
-  set textwidth=80
-  set nowrap                          " nowrap by default
+
   set list                            " show invisible characters
   set listchars=tab:»·,trail:·,nbsp:· " Display extra whitespace
+  set wrap                          " nowrap by default
+  set linebreak
+  set textwidth=120
+  set colorcolumn=120
+
   set number
   set numberwidth=1
   set guifont=Fira_Code:h18
@@ -111,6 +120,9 @@ call plug#end()
   set linespace=8
   set nobackup " Disable backup
   set noswapfile " Disable swap file
+  set cpoptions+=$
+  set virtualedit=all
+
 
   
 
@@ -136,7 +148,7 @@ let mapleader = ','
 " Indent Guides
 "-----------------------------------------------------------------------------
 set ts=2 sw=2 et
-let g:indent_guides_color_change_percent = 3
+let g:indent_guides_color_change_percent = 1
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
@@ -148,7 +160,32 @@ nmap <C-J> <C-W><C-J>
 nmap <C-K> <C-W><C-K>
 nmap <C-H> <C-W><C-H>
 nmap <C-L> <C-W><C-L>
+
+ "open new blank file
+nnoremap o<C-h> :lefta vsp new<cr>
+nnoremap o<C-j> :bel sp new<cr>
+nnoremap o<C-k> :abo sp new<cr>
+nnoremap o<C-l> :rightb vsp new<cr>
+
+"move window
+nnoremap <Leader><C-h> <C-W>H
+nnoremap <Leader><C-j> <C-W>J
+nnoremap <Leader><C-k> <C-W>K
+nnoremap <Leader><C-l> <C-W>L
+
+"maximise horizontally
+map <Leader>= <C-w><Bar>
+
+"maximise vertically
+map <Leader>- <C-w>_
+
+"make all windows equally sized
+map <Leader>es <C-w>=
+
+
+"Emmet
 let g:user_emmet_leader_key=','
+
 
 "--- Mappings----------------- "
 "Make it easy to edit the Vimrc file"
@@ -156,9 +193,18 @@ nmap <Leader>ev :tabedit ~/.vimrc<cr>
 
 "Make NERDTree easier to toggle
 nmap <Leader>n :NERDTreeToggle<cr>
+"Revail file in tree
+nmap <Leader>m :NERDTreeFind<CR>
 
 "Add simple highlight removal"
 nmap <Leader><space> :nohlsearch<cr>
+
+"Easy Align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " Disable Arrow keys in Escape mode
 map <up> <nop>
@@ -172,12 +218,16 @@ imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
 
+nmap ; :Buffers<CR>
+nmap <Leader>t :Files<CR>
+nmap <Leader>r :Tags<CR>
+
 "--- ALE---------------- "
 "
 " Put this in vimrc or a plugin file of your own.
 " After this is configured, :ALEFix will try and fix your JS code with ESLint.
 let g:ale_fixers = {
-\   'javascript': ['eslint', 'prettier'],
+\   'javascript': ['eslint', 'prettier', 'eslint-plugin-vue'],
 \   'scss': ['prettier','stylelint'],
 \}
 " Set this setting in vimrc if you want to fix files automatically on save.
@@ -193,6 +243,10 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#ternjs#docs = 1
 " deoplete tab-complete
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+"--phpfmt
+" A standard type: PEAR, PHPCS, PSR1, PSR2, Squiz and Zend
+let g:phpfmt_standard = 'PSR2'
 
 
 "--- Visual Bell Disable----------------- "

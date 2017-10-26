@@ -371,18 +371,11 @@ alias vim="nvim"
 alias optijpg='find . -name "*.jpg" -exec jpegoptim -m60 -o -p --strip-all {} \;'
 
 
-export GISTY_ACCESS_TOKEN=51b4295e21f2f11f41657220e8b480a24656a19a
-
-
 #Composer get localy
 alias getcomposer="curl -sS https://getcomposer.org/installer | php"
 export PATH="$HOME/.rbenv/bin:$PATH"
 
 eval "$(rbenv init -)"
-
-#AMPPS Paths
-#export PATH=/Applications/AMPPS/php/bin:$PATH
-#export PATH=/Applications/AMPPS/mysql/bin:$PATH
 
 #export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 export PATH=/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:/Users/vedran/bin:/$HOME/.rbenv/bin:$PATH
