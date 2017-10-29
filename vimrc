@@ -38,9 +38,14 @@ Plug 'editorconfig/editorconfig-vim' "EditorConfig plugin for Vim
 Plug 'terryma/vim-expand-region' "visually select increasingly larger regions of text 
 Plug 'tomtom/tcomment_vim' 
 Plug 'morhetz/gruvbox' "gruvbox theme
+
+"Javascript
 Plug 'pangloss/vim-javascript'
+Plug 'jelera/vim-javascript-syntax'
 Plug 'mxw/vim-jsx'
 Plug 'posva/vim-vue'
+Plug 'heavenshell/vim-jsdoc'
+
 Plug 'vim-scripts/Align' "align statements on their equal signs, make comment boxes, align comments, align declarations
 Plug 'Raimondi/delimitMate' "automatic closing of quotes, parenthesis, brackets, etc.
 Plug 'sjl/gundo.vim' "Gundo.vim is Vim plugin to visualize your Vim undo tree.
@@ -48,13 +53,15 @@ Plug 'nathanaelkane/vim-indent-guides' "Indent Guides is a plugin for visually d
 Plug 'godlygeek/tabular' "Lign up text
 Plug 'wellle/targets.vim' "Targets.vim is a Vim plugin that adds various text objects to give you more targets to operate on.
 Plug 'wellle/visual-split.vim' "Vim plugin to control splits with visual selections or text objects
+Plug 'mbbill/undotree' "The ultimate undo history visualizer for VIM
+
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'w0rp/ale'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-Plug 'rking/ag.vim'
 Plug 'Chun-Yang/vim-action-ag'
 Plug 'farmergreg/vim-lastplace'
+Plug 'digitaltoad/vim-pug'
 
 "Formaters
 Plug 'maksimr/vim-jsbeautify'
@@ -65,6 +72,7 @@ Plug 'captbaritone/better-indent-support-for-php-with-html'
 Plug 'chriskempson/base16-vim'
 Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'NLKNguyen/papercolor-theme'
 
 
 
@@ -76,7 +84,8 @@ call plug#end()
   set hlsearch
   set incsearch
   set background=dark " for the dark version
-  colorscheme hybrid_reverse
+  colorscheme base16-default-dark
+  let base16colorspace=256
   if has("gui_running")
     set macligatures
   endif
@@ -124,14 +133,39 @@ call plug#end()
   set virtualedit=all
 
 
-  
+"FZF
+"
+"
+ " set fzf's default input to AG instead of find. This also removes gitignore etc
+let $FZF_DEFAULT_COMMAND = 'ag --hidden -l -g ""'
+
+"function hidefzfhidden()
+"  let $fzf_default_command = 'ag -g ""'
+"endfunction
+
+"function ShowFZFHidden()
+"  let $FZF_DEFAULT_COMMAND = 'ag --hidden -l -g ""'
+"endfunction
+
+let g:fzf_files_options =
+  \ '--preview "(rougify {} || cat {}) 2> /dev/null | head -'.&lines.'"'
+
+"Buffers
+set hidden
+nnoremap <C-b> :Buffers<CR>
+nnoremap <C-g>g :Ag<CR>
+nnoremap <C-g>c :Commands<CR>
+nnoremap <C-f>l :BLines<CR>
+nnoremap <C-p> :Files<CR>
+
+"FZF insert mode
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
 
 "Airline options
-"let g:airline_theme='base16'
 let g:airline#extensions#tabline#enabled = 1
-"let g:gruvbox_contrast_dark = 0
-"let g:gruvbox_bold = 1
-"let g:gruvbox_italic = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#show_buffers = 1
 let g:hybrid_custom_term_colors = 1
@@ -195,6 +229,8 @@ nmap <Leader>ev :tabedit ~/.vimrc<cr>
 nmap <Leader>n :NERDTreeToggle<cr>
 "Revail file in tree
 nmap <Leader>m :NERDTreeFind<CR>
+let g:NERDTreeWinSize=50
+
 
 "Add simple highlight removal"
 nmap <Leader><space> :nohlsearch<cr>
@@ -221,13 +257,15 @@ imap <right> <nop>
 nmap ; :Buffers<CR>
 nmap <Leader>t :Files<CR>
 nmap <Leader>r :Tags<CR>
+nnoremap <A-n> :bnext<CR>:redraw<CR>:Buffers<CR>
+nnoremap <A-p> :bprevious<CR>:redraw<CR>:Buffers<CR>
 
 "--- ALE---------------- "
 "
 " Put this in vimrc or a plugin file of your own.
 " After this is configured, :ALEFix will try and fix your JS code with ESLint.
 let g:ale_fixers = {
-\   'javascript': ['eslint', 'prettier', 'eslint-plugin-vue'],
+\   'javascript': ['eslint', 'prettier'],
 \   'scss': ['prettier','stylelint'],
 \}
 " Set this setting in vimrc if you want to fix files automatically on save.
@@ -248,6 +286,14 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " A standard type: PEAR, PHPCS, PSR1, PSR2, Squiz and Zend
 let g:phpfmt_standard = 'PSR2'
 
+"undotree
+nnoremap <F5> :UndotreeToggle<cr>
+
+if has("persistent_undo")
+    set undodir=~/.undodir/
+    set undofile
+endif
+
 
 "--- Visual Bell Disable----------------- "
 autocmd GUIEnter * set vb t_vb= " for your GUI
@@ -258,6 +304,15 @@ augroup autosourcing
 	autocmd!
 	autocmd BufWritePost .vimrc source %
 augroup END
+
+"Javascript Specific
+let g:javascript_plugin_flow = 1
+let g:jsx_ext_required = 0
+" augroup javascript_folding
+"     au!
+"     au FileType javascript setlocal foldmethod=syntax
+" augroup END
+
 
 
 

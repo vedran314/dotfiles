@@ -390,6 +390,24 @@ export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
+  fe() {
+    local files
+    IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+    [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+  }
+
+  # fuzzy grep open via ag
+  vg() {
+    local file
+
+    file="$(ag --nobreak --noheading $@ | fzf -0 -1 | awk -F: '{print $1 " +" $2}')"
+
+    if [[ -n $file ]]
+    then
+      vim $file
+    fi
+  }
+
   # fbr - checkout git branch
   fbr() {
     local branches branch
@@ -470,9 +488,46 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   }
 
 
-  # Search through your LastPass vault with LastPass CLI and copy password to
-  # clipboard.
-  
+  # Install (one or multiple) selected application(s)
+  # using "brew search" as source input
+  # mnemonic [B]rew [I]nstall [P]lugin
+  bip() {
+    local inst=$(brew search | fzf -m)
+
+    if [[ $inst ]]; then
+      for prog in $(echo $inst);
+      do; brew install $prog; done;
+    fi
+  }
+  # Update (one or multiple) selected application(s)
+  # mnemonic [B]rew [U]pdate [P]lugin
+  bup() {
+    local upd=$(brew leaves | fzf -m)
+
+    if [[ $upd ]]; then
+      for prog in $(echo $upd);
+      do; brew upgrade $prog; done;
+    fi
+  }
+  # Delete (one or multiple) selected application(s)
+  # mnemonic [B]rew [C]lean [P]lugin (e.g. uninstall)
+  bcp() {
+    local uninst=$(brew leaves | fzf -m)
+
+    if [[ $uninst ]]; then
+      for prog in $(echo $uninst);
+      do; brew uninstall $prog; done;
+    fi
+  }
+
+# color man pages
+export LESS_TERMCAP_mb=$(printf '\e[01;31m') # enter blinking mode – red
+export LESS_TERMCAP_md=$(printf '\e[01;35m') # enter double-bright mode – bold, magenta
+export LESS_TERMCAP_me=$(printf '\e[0m')     # turn off all appearance modes (mb, md, so, us)
+export LESS_TERMCAP_se=$(printf '\e[0m')     # leave standout mode
+export LESS_TERMCAP_so=$(printf '\e[01;33m') # enter standout mode – yellow
+export LESS_TERMCAP_ue=$(printf '\e[0m')     # leave underline mode
+export LESS_TERMCAP_us=$(printf '\e[04;36m') # enter underline mode – cyan
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
